@@ -12,6 +12,9 @@ interface SpeechVisualizerProps {
 
   /** Whether the audio is paused. Default is false */
   paused?: boolean;
+
+  /** The sensitivity of the visualization. Specifically, the color intensity of each dot is the decibel value of its assigned frequency multiplied by this value. Higher sensitivity shows brighter colors. Default is 90 */
+  sensitivity?: number;
 }
 
 export default function SpeechVisualizer({
@@ -19,6 +22,7 @@ export default function SpeechVisualizer({
   dotSize = 2,
   gridSideLength = 25,
   paused = false,
+  sensitivity = 90,
 }: SpeechVisualizerProps) {
   const [frequencyData, setFrequencyData] = useState<Uint8Array | null>(null);
   const audioRef = useRef<HTMLAudioElement | null>(null);
@@ -98,7 +102,7 @@ export default function SpeechVisualizer({
                   width: `${CELL_SIZE}px`,
                   height: `${CELL_SIZE}px`,
                   borderRadius: "50%",
-                  backgroundColor: `rgb( 0, 0, ${value * 3})`,
+                  backgroundColor: `rgb( 0, 0, ${value * sensitivity})`,
                 }}
               ></div>
             );
