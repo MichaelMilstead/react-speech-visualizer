@@ -1,4 +1,5 @@
 "use client";
-import Component from "./src/component-name/component";
 
-export default Component;
+import SpeechVisualizer from "./speech-visualizer/speech-visualizer";
+
+export default SpeechVisualizer;
