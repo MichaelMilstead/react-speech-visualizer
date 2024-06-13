@@ -39,7 +39,8 @@ export default App;
 ## Props
 
 - `audioPath` (string) **required**: The path to the audio file to be visualized.
-- `dotColor` (sting): The color of each dot when lit up. Default is blue.
+- `dotActiveColor` (string): The color of each dot when lit up. Default is blue.
+- `dotInactiveColor` (string): The color of each inactivated dot in the grid. Use 'transparent' if you want no background grid to show. Default is black.
 - `dotSize` (number): The size of each dot in the grid. Default is 2px width and height.
 - `gridSideLength` (number): The number of dots along one side of the grid, where the grid is a square. Default is 25.
 - `paused` (boolean): Whether the audio is paused. An initial value of 'false' will act like 'autoplay'. Default is false.

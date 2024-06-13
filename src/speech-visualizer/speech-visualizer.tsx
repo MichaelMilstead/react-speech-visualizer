@@ -4,8 +4,11 @@ interface SpeechVisualizerProps {
   /** The path to the audio file to be visualized */
   audioPath: string;
 
-  /** The color of each dot in the grid. Default is blue */
-  dotColor?: string;
+  /** The color of each activated dot in the grid. Default is blue */
+  dotActiveColor?: string;
+
+  /** The color of each inactivated dot in the grid. Use 'transparent' if you want no background grid to show. Default is black*/
+  dotInactiveColor?: string;
 
   /** The size of each dot in the grid. Default is 2px */
   dotSize?: number;
@@ -22,7 +25,8 @@ interface SpeechVisualizerProps {
 
 export default function SpeechVisualizer({
   audioPath,
-  dotColor = "blue",
+  dotActiveColor = "blue",
+  dotInactiveColor = "black",
   dotSize = 2,
   gridSideLength = 25,
   paused = false,
@@ -77,7 +81,11 @@ export default function SpeechVisualizer({
     return Math.round(normalizedDistance);
   };
 
+  const getDotColor = (decibelValue: number) => {
+    return decibelValue > 0 ? dotActiveColor : dotInactiveColor;
+  };
   const getDotColorIntensity = (decibelValue: number) => {
+    if (decibelValue === 0) return 1;
     const alpha = Math.min(1, Math.max(0, (decibelValue * sensitivity) / 255));
     return alpha;
   };
@@ -111,7 +119,7 @@ export default function SpeechVisualizer({
                   width: `${CELL_SIZE}px`,
                   height: `${CELL_SIZE}px`,
                   borderRadius: "50%",
-                  backgroundColor: dotColor,
+                  backgroundColor: getDotColor(value),
                   opacity: getDotColorIntensity(value),
                 }}
               ></div>
