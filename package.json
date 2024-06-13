@@ -1,7 +1,7 @@
 {
-  "name": "component-package-template",
+  "name": "react-speech-visualizer",
   "version": "0.0.1",
-  "description": "",
+  "description": "React component to visualize speech (or any audio)",
   "main": "dist/index.js",
   "files": [
     "dist"
