@@ -2,7 +2,7 @@
 
 A React component that visualizes speech (or any audio) using a grid of dots that change color based on the audio's frequency data.
 
-![Demo gif](https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExazVraXkwZzNwbXNpYnV0YzVjc2cyOTl3bnRxOTFnMHpzcWw5NjNxcyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/B6RgVP6z1VdFiQF2ef/giphy.gif)
+![Demo gif](https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExeHc3ZmtzdDRsZXpyYngxeTB0ajcwOThka3czcHpvM3JzenNmazdwcCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/uJaERrCfNEb3XGvgYO/giphy.gif)
 
 ## Installation
 
@@ -42,6 +42,7 @@ export default App;
 - `dotSize` (number): The size of each dot in the grid. Default is 2px width and height.
 - `gridSideLength` (number): The number of dots along one side of the grid, where the grid is a square. Default is 25.
 - `paused` (boolean): Whether the audio is paused. An initial value of 'false' will act like 'autoplay'. Default is false.
+- `sensitivity` (number): The sensitivity of the visualization. Specifically, the color intensity of each dot is the decibel value of its assigned frequency multiplied by this value. Higher sensitivity shows brighter colors. Default is 90.
 
 ## Issues and Feature Requests
 
