@@ -1,6 +1,6 @@
 # React Speech Visualizer
 
-A React component that visualizes audio (specifically speech) using a grid of dots that change color based on the audio's frequency data.
+A React component that visualizes speech (or any audio) using a grid of dots that change color based on the audio's frequency data.
 
 ![Demo gif](https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExazVraXkwZzNwbXNpYnV0YzVjc2cyOTl3bnRxOTFnMHpzcWw5NjNxcyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/B6RgVP6z1VdFiQF2ef/giphy.gif)
 
