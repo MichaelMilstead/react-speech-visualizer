@@ -1,6 +1,6 @@
 {
   "name": "react-speech-visualizer",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "React component to visualize speech (or any audio)",
   "main": "dist/index.js",
   "files": [
@@ -12,12 +12,20 @@
   },
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/MichaelMilstead/react-speech-visualizer"
   },
   "bugs": {
-    "url": ""
+    "url": "https://github.com/MichaelMilstead/react-speech-visualizer/issues"
   },
-  "keywords": [],
+  "keywords": [
+    "speech",
+    "visualizer",
+    "audio",
+    "gpt",
+    "ai",
+    "react",
+    "typescript"
+  ],
   "author": "Michael Milstead",
   "license": "ISC",
   "devDependencies": {

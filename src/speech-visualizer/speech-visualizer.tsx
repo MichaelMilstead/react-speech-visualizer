@@ -1,9 +1,16 @@
 import React, { useEffect, useRef, useState } from "react";
 
 interface SpeechVisualizerProps {
+  /** The path to the audio file to be visualized */
   audioPath: string;
+
+  /** The size of each dot in the grid. Default is 2px */
   dotSize?: number;
+
+  /** The number of dots along one side of the grid. Default is 25 */
   gridSideLength?: number;
+
+  /** Whether the audio is paused. Default is false */
   paused?: boolean;
 }
 
