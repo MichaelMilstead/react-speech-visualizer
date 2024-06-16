@@ -16,7 +16,7 @@ interface SpeechVisualizerProps {
   /** The number of dots along one side of the grid. Default is 25 */
   gridSideLength?: number;
 
-  /** Whether the audio is paused. Default is false */
+  /** Whether the audio is paused. Default is true*/
   paused?: boolean;
 
   /** The sensitivity of the visualization. Specifically, the color intensity of each dot is the decibel value of its assigned frequency multiplied by this value. Higher sensitivity shows brighter colors. Default is 90 */
@@ -29,7 +29,7 @@ export default function SpeechVisualizer({
   dotInactiveColor = "black",
   dotSize = 2,
   gridSideLength = 25,
-  paused = false,
+  paused = true,
   sensitivity = 90,
 }: SpeechVisualizerProps) {
   const [frequencyData, setFrequencyData] = useState<Uint8Array | null>(null);
