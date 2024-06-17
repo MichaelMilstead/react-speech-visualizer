@@ -4,6 +4,8 @@ A React component that visualizes speech (or any audio) using a grid of dots tha
 
 ![Demo gif](https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExeHc3ZmtzdDRsZXpyYngxeTB0ajcwOThka3czcHpvM3JzenNmazdwcCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/uJaERrCfNEb3XGvgYO/giphy.gif)
 
+[live example here](https://speechviz.milst.dev)
+
 ## Installation
 
 ```shell
