@@ -16,7 +16,7 @@ interface SpeechVisualizerProps {
   /** The number of dots along one side of the grid. Default is 25 */
   gridSideLength?: number;
 
-  /** Whether the audio is paused. Default is false */
+  /** Whether the audio is paused. Default is true*/
   paused?: boolean;
 
   /** The sensitivity of the visualization. Specifically, the color intensity of each dot is the decibel value of its assigned frequency multiplied by this value. Higher sensitivity shows brighter colors. Default is 90 */
@@ -29,7 +29,7 @@ export default function SpeechVisualizer({
   dotInactiveColor = "black",
   dotSize = 2,
   gridSideLength = 25,
-  paused = false,
+  paused = true,
   sensitivity = 90,
 }: SpeechVisualizerProps) {
   const [frequencyData, setFrequencyData] = useState<Uint8Array | null>(null);
@@ -39,9 +39,9 @@ export default function SpeechVisualizer({
   const CELL_SIZE = dotSize;
   const GRID_SIZE = gridSideLength;
 
-  useEffect(() => {
-    if (audioRef.current) {
-      const audioContext = new window.AudioContext();
+  const setupAudio = () => {
+    if (audioRef.current && !analyserRef.current && !dataArrayRef.current) {
+      const audioContext = new AudioContext();
       const source = audioContext.createMediaElementSource(audioRef.current);
       const analyser = audioContext.createAnalyser();
       analyser.fftSize = 1024;
@@ -60,13 +60,14 @@ export default function SpeechVisualizer({
       };
       updateVisualization();
     }
-  }, []);
+  };
 
   useEffect(() => {
     if (audioRef.current) {
       if (paused) {
         audioRef.current.pause();
       } else {
+        setupAudio();
         audioRef.current.play();
       }
     }
@@ -84,6 +85,7 @@ export default function SpeechVisualizer({
   const getDotColor = (decibelValue: number) => {
     return decibelValue > 0 ? dotActiveColor : dotInactiveColor;
   };
+
   const getDotColorIntensity = (decibelValue: number) => {
     if (decibelValue === 0) return 1;
     const alpha = Math.min(1, Math.max(0, (decibelValue * sensitivity) / 255));
